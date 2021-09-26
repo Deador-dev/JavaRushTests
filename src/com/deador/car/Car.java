@@ -1,4 +1,4 @@
-package com.deador;
+package com.deador.car;
 
 public class Car {
     static int countOfCars;

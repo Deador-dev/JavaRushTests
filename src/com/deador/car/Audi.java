@@ -1,14 +1,13 @@
-package com.deador;
+package com.deador.car;
 
-public class Audi extends Car{
+public class Audi extends Car {
     private double cost;
 
     public Audi(){
 
     }
     public Audi(String model, int maxSpeed, double cost){
-        this.setModel(model);
-        this.setMaxSpeed(maxSpeed);
+        super(model, maxSpeed);
         this.cost = cost;
     }
 
