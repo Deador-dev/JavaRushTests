@@ -48,5 +48,15 @@ public class Main {
 //        System.out.println("Hello world");
 //        ------------------------------------------------------------------------------------------------------------------------------------------
 
+        Car bugatti = new Car("Bugatti", 300);
+        System.out.println("John bought " + bugatti.getModel() + ". Max speed is: " + bugatti.getMaxSpeed());
+
+        Audi audi = new Audi("Audi RS7", 280, 1_000_000);
+        System.out.println("Alex bought " + audi.getModel() + ". Max speed is: " + audi.getMaxSpeed());
+
+        Audi_2 audi_2 = new Audi_2("Audi 2", 200, 500_000);
+        System.out.println("James bought " + audi_2.getModel() + ". Max speed is: " + audi_2.getMaxSpeed());
+
+        System.out.println("Count of sold cars are: " + Car.countOfCars);
     }
 }
