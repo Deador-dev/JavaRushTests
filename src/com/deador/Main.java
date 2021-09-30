@@ -1,7 +1,15 @@
 package com.deador;
 
+import com.deador.applications.Messenger;
+import com.deador.applications.Telegram;
+import com.deador.applications.Viber;
+import com.deador.applications.WhatsApp;
+import com.deador.car.Audi;
+import com.deador.car.Audi_2;
+import com.deador.car.Car;
 import com.deador.duck.Duck;
 import com.deador.duck.Duck_2;
+import com.deador.vector.Vector;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,10 +58,58 @@ public class Main {
 //        System.out.println("James bought " + audi_2.getModel() + ". Max speed is: " + audi_2.getMaxSpeed());
 //
 //        System.out.println("Count of sold cars are: " + Car.countOfCars);
+//        ------------------------------------------------------------------------------------------------------------------------------------------
+        /**
+         * Пример интерфейсов
+         */
+//        Telegram telegram = new Telegram();
+//        WhatsApp whatsApp = new WhatsApp();
+//        Viber viber = new Viber();
+//        telegram.sendMessage();
+//        whatsApp.getMessage();
+//        viber.sendMessage();
+//        Messenger[] messengers = {};
 
 
-        Duck duck = new Duck_2();
-        duck.swim();
+        Vector vector_1 = new Vector(5.0, 2.0, 3.0);
+        System.out.println("Vector 1 length: " + vector_1.length());
+        Vector vector_2 = new Vector(6.0, 3.0, 6.0);
+        System.out.println("Vector 2 length: " + vector_2.length());
+        System.out.println("Scalar product: " + vector_1.scalarProduct(vector_2) + "\n");
+        System.out.println("1: " + vector_1.toString());
+        System.out.println("2: " + vector_2.toString());
+        Vector vector_3 = vector_1.multiplicationVector(vector_2);
+        System.out.println("3: " + vector_3.toString());
 
+        System.out.println("Injection of vectors: " + vector_1.cosOfVector(vector_2) + " \n");
+        Vector vector_4 = vector_1.add(vector_3);
+        System.out.println("Additional of vector_1 and vector_3: \n" + vector_4.toString() + "\n");
+
+
+        System.out.println("List of random vectors: ");
+        Vector[] vectors = Vector.randomVector(10);
+        for(Vector vector: vectors){
+            System.out.println(vector.toString() + " \n");
+        }
     }
+
+
+    /**
+     * Метод удаления элемента с массива
+     */
+//    public static int[] removeElement(int[] array, int element) {
+//        int offSet = 0;
+//        for (int i = 0; i < array.length; i++) {
+//            if (array[i] == element) {
+//                offSet++;
+//            } else {
+//                array[i - offSet] = array[i];
+//            }
+//        }
+//        return Arrays.copyOf(array, array.length - offSet);
+//
+//
+//    }
+
+
 }

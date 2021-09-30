@@ -1,7 +1,7 @@
 package com.deador.car;
 
 public class Car {
-    static int countOfCars;
+    public static int countOfCars;
     private String model;//модель
     private int maxSpeed;//максимальная скорость
     private int wheels;//ширина дисков
