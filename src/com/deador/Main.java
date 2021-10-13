@@ -13,6 +13,9 @@ import com.deador.duck.Duck_2;
 import com.deador.flower.Flower;
 import com.deador.flower.Roses;
 import com.deador.flower.Tulips;
+import com.deador.fruit.Apple;
+import com.deador.fruit.Fruit;
+import com.deador.fruit.Pear;
 import com.deador.random_element_with_a_weight.RandomFromArray;
 import com.deador.shop.Category;
 import com.deador.shop.Goods;
@@ -153,6 +156,13 @@ public class Main<a> {
         System.out.println("Кол-во телефонов " + Goods.countOfPhones + ".");
          */
 
+        /**
+         * Создать класс Flower, который содержит переменные страна производитель, срок хранения в днях, цена.
+         * Создать классы расширяющие класс Flower (для примера, пусть это будут розы, гвоздики, тюльпаны и... что-то на свой вкус).
+         * Собрать 3 букета (используем массив) с определением их стоимости. В букет может входить несколько цветов разного типа.
+         * Также подсчитать количество проданных цветов (используем статическую переменную).
+         */
+        /*
         //Created flowers
         Flower roses_1 = new Roses("UA", 5, 1.5);
         Flower tulip_1 = new Tulips("USA", 10, 0.8);
@@ -222,14 +232,42 @@ public class Main<a> {
             price = 0;
             index = 0;
         }
+        */
+
+        /**
+         * Фруктовая лавка. Создать абстрактный класс Фрукт и классы Яблоко, Груша, Абрикос расширяющие его. Класс Фрукт содержит:
+         * а) переменную вес,
+         * б) завершенный метод printManufacturerInfo(){System.out.print("Made in Ukraine");}
+         * в) абстрактный метод, возвращающий стоимость фрукта, который должен быть переопределен в каждом классе наследнике. Метод должен учитывать вес фрукта.
+         * Создать несколько объектов разных классов. Подсчитать общую стоимость проданных фруктов. А также общую стоимость отдельно проданных яблок, груш и абрикос.
+         */
+        /*
+        Apple apple = new Apple();
+        Pear pear = new Pear();
+        Fruit[] fruits = {apple, pear};
+
+        double price = 0;
+        for (Fruit fruit : fruits) {
+            price += fruit.getPrice(2.0);
+        }
+        System.out.println("Price for 2.3 kg apple and 2.3 kg pear = " + price + "$");
+        */
+
+
+
+
+
+
+
+
 
 
     }
 
 
-    /**
-     * Метод удаления элемента с массива
-     */
+/**
+ * Метод удаления элемента с массива
+ */
 //    public static int[] removeElement(int[] array, int element) {
 //        int offSet = 0;
 //        for (int i = 0; i < array.length; i++) {
