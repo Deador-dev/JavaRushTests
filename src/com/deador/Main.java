@@ -10,6 +10,9 @@ import com.deador.car.Audi_2;
 import com.deador.car.Car;
 import com.deador.duck.Duck;
 import com.deador.duck.Duck_2;
+import com.deador.flower.Flower;
+import com.deador.flower.Roses;
+import com.deador.flower.Tulips;
 import com.deador.random_element_with_a_weight.RandomFromArray;
 import com.deador.shop.Category;
 import com.deador.shop.Goods;
@@ -149,6 +152,76 @@ public class Main<a> {
         }
         System.out.println("Кол-во телефонов " + Goods.countOfPhones + ".");
          */
+
+        //Created flowers
+        Flower roses_1 = new Roses("UA", 5, 1.5);
+        Flower tulip_1 = new Tulips("USA", 10, 0.8);
+
+        //Created bouquet
+        Flower[] bouquet_1 = new Flower[10];
+
+        System.out.println("Какой цветок вы хотите добавить в букет ?\nСписок доступных цветов: Rose, Tulip.\nЕсли Вы закончили собирать букет, напишите 'End'");
+        int countOfBouquet = 0;
+        System.out.println("Сколько букетов вы хотите ?");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Error. Pls enter integer number.");
+            scanner.next();
+        }
+        countOfBouquet = scanner.nextInt();
+        //Information about count of flowers and total price
+        String temp = "none";
+        int index = 0;
+        int countOfFlowers = 0;
+        double price = 0;
+        int i = 1;
+
+        //----------------------------------------------------------------------
+        while (i <= countOfBouquet) {
+            System.out.println("Букет " + i + ".");
+            label:
+            while (true) {
+                if (countOfFlowers >= 10) {
+                    System.out.println("Максисальное кол-во цветов в букете: 10.");
+                    break;
+                }
+                temp = scanner.nextLine();
+                switch (temp) {
+                    case "Rose":
+                        System.out.println("Вы добавили розу в букет.");
+                        bouquet_1[index] = roses_1;
+                        index++;
+                        countOfFlowers++;
+                        price += roses_1.getPrice();
+                        break;
+                    case "Tulip":
+                        System.out.println("Вы добавили тульпан в букет.");
+                        bouquet_1[index] = tulip_1;
+                        index++;
+                        countOfFlowers++;
+                        price += tulip_1.getPrice();
+                        break;
+                    case "End":
+                        break label;
+                    default:
+                        System.out.println("Error. Pls enter flower name or 'End'");
+                        break;
+                }
+            }
+            //----------------------------------------------------------------------
+
+            for (Flower flower : bouquet_1) {
+                if (flower != null) {
+                    System.out.println(flower.toString());
+                }
+            }
+
+            System.out.println("Цена букета: " + price + "$");
+            System.out.println("Продано " + index + " цветов.");
+            i++;
+            Arrays.fill(bouquet_1, null);
+            price = 0;
+            index = 0;
+        }
 
 
     }

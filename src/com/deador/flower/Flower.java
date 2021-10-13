@@ -15,6 +15,14 @@ public class Flower {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Flower{" +
+                "manufacturerCountry='" + manufacturerCountry + '\'' +
+                ", shelfLifeInDays=" + shelfLifeInDays +
+                ", price=" + price +
+                '}';
+    }
 
     public String getManufacturerCountry() {
         return manufacturerCountry;
