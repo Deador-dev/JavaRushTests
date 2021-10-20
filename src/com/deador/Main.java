@@ -1,28 +1,14 @@
 package com.deador;
 
-import com.deador.applications.Messenger;
-import com.deador.applications.Telegram;
-import com.deador.applications.Viber;
-import com.deador.applications.WhatsApp;
-import com.deador.binarysearch.BinarySearch;
-import com.deador.car.Audi;
-import com.deador.car.Audi_2;
-import com.deador.car.Car;
-import com.deador.duck.Duck;
-import com.deador.duck.Duck_2;
-import com.deador.flower.Flower;
-import com.deador.flower.Roses;
-import com.deador.flower.Tulips;
-import com.deador.fruit.Apple;
-import com.deador.fruit.Fruit;
-import com.deador.fruit.Pear;
-import com.deador.random_element_with_a_weight.RandomFromArray;
-import com.deador.shop.Category;
-import com.deador.shop.Goods;
-import com.deador.vector.Vector;
+import com.deador.enum_new.Animals;
+import com.deador.inter.Animal;
+import com.deador.inter.Info;
+import com.deador.serializable.Person;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main<a> {
@@ -233,7 +219,6 @@ public class Main<a> {
             index = 0;
         }
         */
-
         /**
          * Фруктовая лавка. Создать абстрактный класс Фрукт и классы Яблоко, Груша, Абрикос расширяющие его. Класс Фрукт содержит:
          * а) переменную вес,
@@ -254,33 +239,200 @@ public class Main<a> {
         */
 
 
+        /**
+         * Input Stream | Output Stream
+         */
+        /*
+        byte[] array1 = new byte[]{1, 3, 5, 7};
+        ByteArrayInputStream byteArrayInputStream1 = new ByteArrayInputStream(array1);
+        int b;
+        while ((b = byteArrayInputStream1.read()) != -1) {
+            System.out.print(b + " ");
+        }
+        System.out.println();
+        String str = "Hello world";
+        byte[] array2 = str.getBytes();
+        ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(array2, 0, 5);
+        while ((b = byteArrayInputStream2.read()) != -1) {
+            System.out.print((char) b);
+        }
 
 
+        try {
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream("k://TEXT.txt"));
+            System.out.println("Размер файла: " + bufferedInputStream.available() + " байт(а)");
+            byte[] buffer = new byte[bufferedInputStream.available()];
+            bufferedInputStream.read(buffer, 0, buffer.length);
+
+            for (int i : buffer) {
+                System.out.print((char) i);
+            }
+
+            FileOutputStream fileOutputStream = new FileOutputStream("k:\\New.txt");
+            fileOutputStream.write(buffer);
+
+            bufferedInputStream.close();
+            fileOutputStream.close();
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        */
 
 
+        /**
+         * Пример работы с ИНТЕРФЕЙСОМ
+         */
+        /*
+        Animal animal = new Animal(7);
+        Person person = new Person("James");
+        Info info = new Animal(1);
+        animal.showInfo();
+        animal.makeNoise();
+
+        person.showInfo();
+        person.sleep();
+
+        info.showInfo();
+        System.out.println();
+        outputShowInfo(animal);
+        outputShowInfo(person);
+        outputShowInfo(info);
+        */
+
+        /*
+        try {
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream("k://"));
+            System.out.printf("Размер файла %d байт.\n", bufferedInputStream.available());
+            byte[] array = new byte[bufferedInputStream.available()];
+            bufferedInputStream.read(array, 0, array.length);
+            for (int i : array) {
+                System.out.print((char) i);
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+         */
 
 
+/**
+ * Запись объектов в файл
+ */     /*
+        Person person_1 = new Person("James", 1);
+        Person person_2 = new Person("Bob", 2);
+        try {
+            FileOutputStream fos = new FileOutputStream("binaryObjects.bin");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(person_1);
+            oos.writeObject(person_2);
+            oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+/**
+ *  Чтение объектов с файла
+ */     /*
+        try {
+            FileInputStream fileInputStream = new FileInputStream("binaryObjects.bin");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            Person person_3 = (Person) objectInputStream.readObject();
+            Person person_4 = (Person) objectInputStream.readObject();
+            System.out.println(person_3);
+            System.out.println(person_4);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        */
+/**
+ *  Запись и чтений массива объектов
+ */
+//        Person[] people = {new Person("James", 1), new Person("Bob", 2), new Person("Tom", 3)};
+//        // Writing
+//        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("binaryObjects.bin"))) {
+//            // First way
+//            objectOutputStream.writeInt(people.length);
+//            for (Person person : people) {
+//                objectOutputStream.writeObject(person);
+//            }
+//            // Second way
+////            objectOutputStream.writeObject(people);
+//
+//            objectOutputStream.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        // Reading
+//        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("binaryObjects.bin"))) {
+//            // First way
+//            int index = objectInputStream.readInt();
+//            Person[] peopleFromFile = new Person[index];
+//            for (int i = 0; i < peopleFromFile.length; i++) {
+//                peopleFromFile[i] = (Person) objectInputStream.readObject();
+//            }
+//            for (Person person : peopleFromFile) {
+//                System.out.println(person);
+//            }
+//            //Second way
+////            Person[] peopleFromFile = (Person[]) objectInputStream.readObject();
+////            System.out.println(Arrays.toString(peopleFromFile));
+//        } catch (IOException | ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+
+/**
+ *  Enum пример
+ */
+//        Animals animal = Animals.FROG;
+//        System.out.println(animal.toString());
+
+        System.out.println(factorial(3));
 
 
     }
 
 
-/**
- * Метод удаления элемента с массива
- */
-//    public static int[] removeElement(int[] array, int element) {
-//        int offSet = 0;
-//        for (int i = 0; i < array.length; i++) {
-//            if (array[i] == element) {
-//                offSet++;
-//            } else {
-//                array[i - offSet] = array[i];
-//            }
-//        }
-//        return Arrays.copyOf(array, array.length - offSet);
-//
-//
-//    }
+    /**
+     * Метод удаления элемента с массива
+     */
+    public static int[] removeElementFromArray(int[] array, int elementToRemove) {
+        int offset = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == elementToRemove) {
+                offset++;
+            } else {
+                array[i - offset] = array[i];
+            }
+        }
+        return Arrays.copyOf(array, array.length - offset);
+    }
+
+    public static int[] bubbleSorter(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = array.length - 1; j > i; j--) {
+                if (array[j - 1] > array[j]) {
+                    int temp = array[j - 1];
+                    array[j - 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+        return array;
+    }
 
 
+    public static void outputShowInfo(Info info) {
+        info.showInfo();
+    }
+
+    static int factorial(int number) {
+        if (number == 1) {
+            return 1;
+        }
+        if (number == 0) {
+            return 1;
+        }
+        return number * factorial(number-1);
+    }
 }
