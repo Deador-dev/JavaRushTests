@@ -1,20 +1,14 @@
 package com.deador;
 
-import com.deador.enum_new.Animals;
-import com.deador.inter.Animal;
 import com.deador.inter.Info;
-import com.deador.serializable.Person;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
-public class Main<a> {
+public class Main {
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         /**
          *Пример работы с коллекциями (Инвертированый вивод коллекции, удаление эелементов)
          */
@@ -386,8 +380,11 @@ public class Main<a> {
  */
 //        Animals animal = Animals.FROG;
 //        System.out.println(animal.toString());
-
-        System.out.println(factorial(3));
+        ThreadScanner threadScanner = new ThreadScanner();
+        Thread thread_1 = new Thread(threadScanner);
+        thread_1.start();
+        scanner.nextLine();
+        threadScanner.shutDown();
 
 
     }
@@ -433,6 +430,42 @@ public class Main<a> {
         if (number == 0) {
             return 1;
         }
-        return number * factorial(number-1);
+        return number * factorial(number - 1);
+    }
+}
+
+//class Runner implements Runnable {
+//
+//    @Override
+//    public void run() {
+//        for (int i = 0; i < 1000; i++) {
+//            System.out.println("First thread " + i);
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+//}
+
+class ThreadScanner implements Runnable {
+    Scanner scanner = new Scanner(System.in);
+    private volatile boolean running = true;
+
+    @Override
+    public void run() {
+        while (running) {
+            System.out.println("Thread scanner.");
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void shutDown() {
+        this.running = false;
     }
 }
